@@ -1,0 +1,44 @@
+scalar DateTime
+
+type Query {
+  users(skip: Int = 0, first: Int = 10):[User]!
+  feed(skip: Int = 0, first: Int = 10): MessageFeed!
+}
+
+type MessageFeed {
+  messages:  [Message!]!
+  count: Int!
+}
+
+type Mutation {
+  post(content: String!): Message!
+  signup(email: String!, password: String!, name: String!, color: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  deleteMessage(id: ID!): Message
+}
+
+type Subscription {
+  newMessage: Message,
+  userConnection: User
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  messages: [Message!]!
+  color: String!
+  lastConnection: DateTime!
+}
+
+type Message {
+  id: ID!
+  content: String!
+  postedBy: User
+  createdAt:  DateTime!
+}

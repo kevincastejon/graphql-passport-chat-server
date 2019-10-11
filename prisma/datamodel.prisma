@@ -1,0 +1,17 @@
+scalar DateTime
+
+type Message {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  postedBy: User
+  content: String!
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  messages: [Message!]!
+  color: String!
+}

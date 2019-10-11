@@ -1,0 +1,34 @@
+{
+  "name": "graphql-passport-chat-server",
+  "version": "1.0.0",
+  "description": "GraphQL / Passport simple chat server",
+  "main": "src/index.js",
+  "author": "kevincastejon",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "prisma": "prisma",
+    "deploy": "npm run prisma deploy",
+    "build": "npm run deploy && babel src/ -d dist",
+    "start": "npm run build && node dist/index.js",
+    "dev": "npm run deploy && nodemon --exec babel-node src/"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.1.0",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "prisma": "^1.34.8",
+    "prisma-client-lib": "^1.34.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
