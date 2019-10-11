@@ -8,5 +8,4 @@ generate:
   - generator: javascript-client
     output: ../src/generated/prisma-client
 
-#endpoint: ''endpoint: https://eu1.prisma.sh/kevin-castejon-2ecacd/graphql-chat-server/dev
-
+endpoint: ''
