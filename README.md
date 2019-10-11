@@ -1,6 +1,9 @@
-# graphql-chat-server
+# graphql-passport-chat-server
 
 A simple chat server made with GraphQL
+
+### Before running
+Open the .env file and set the different variables
 
 ### Run dev
 ```
