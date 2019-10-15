@@ -33,7 +33,7 @@ const server = new GraphQLServer({
 passport.use(new FacebookStrategy({
   clientID: process.env.FB_API_ID,
   clientSecret: process.env.FB_API_SECRET,
-  callbackURL: 'http://localhost:4000/auth/facebook/callback',
+  callbackURL: `${process.env.API_URL}/auth/facebook/callback`,
   profileFields: ['id', 'displayName', 'picture.type(small)'],
 },
 async (accessToken, refreshToken, profile, cb) => {
@@ -77,11 +77,11 @@ server.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 server.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: 'http://localhost:3000/#/fail' }),
+  passport.authenticate('facebook', { failureRedirect: `${process.env.CLIENT_URL}/#/fail` }),
   (req, res) => {
     // Successful authentication, redirect home.
     res.clearCookie('connect.sid', { path: '/' });
-    res.redirect(`http://localhost:3000/#/success/${jwt.sign({ userId: res.req.user.id }, process.env.APP_SECRET)}`);
+    res.redirect(`${process.env.CLIENT_URL}/#/success/${jwt.sign({ userId: res.req.user.id }, process.env.APP_SECRET)}`);
   });
 
-server.start(() => console.log('Server is running on http://localhost:4000'));
+server.start(() => console.log('Server is running'));
