@@ -8,4 +8,4 @@ generate:
   - generator: javascript-client
     output: ../src/generated/prisma-client
 
-#endpoint: ''
+endpoint: ''
