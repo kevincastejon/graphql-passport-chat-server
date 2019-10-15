@@ -1,13 +1,13 @@
 const { getUserId } = require('../utils');
 
-function users(parent, args, context) {
-  getUserId(context);
-  return context.prisma.users({
-    skip: args.skip,
-    first: args.first,
-    orderBy: 'name_ASC',
-  });
-}
+// function users(parent, args, context) {
+//   getUserId(context);
+//   return context.prisma.users({
+//     skip: args.skip,
+//     first: args.first,
+//     orderBy: 'name_ASC',
+//   });
+// }
 
 async function feed(parent, args, context) {
   getUserId(context);
@@ -24,5 +24,6 @@ async function feed(parent, args, context) {
 }
 
 module.exports = {
-  users, feed,
+  // users,
+  feed,
 };

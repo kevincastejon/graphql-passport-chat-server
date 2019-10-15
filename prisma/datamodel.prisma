@@ -10,8 +10,10 @@ type Message {
 type User {
   id: ID! @id
   name: String!
-  email: String! @unique
-  password: String!
+  email: String @unique
+  password: String
   messages: [Message!]!
-  color: String!
+  color: String
+  facebookid: ID
+  avatar: String
 }
